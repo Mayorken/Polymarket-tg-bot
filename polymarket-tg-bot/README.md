@@ -62,7 +62,13 @@ src/
 
 ## Phase 2: trading and the custody decision
 
-Trading is intentionally **not** built yet. The Polymarket mechanics are easy
+Trading is intentionally **not** wired into the bot yet. To prove the Polymarket
+trade loop works before building the real flow, there's a standalone spike in
+[`spike/`](./spike) that runs the full loop with your own funds (deploy gasless
+deposit wallet → fund → approve → place a builder-attributed order → confirm
+attribution). Start there; see `spike/README.md`.
+
+The Polymarket mechanics are easy
 (deploy a gasless deposit wallet, fund with pUSD, place orders with
 `signatureType: 3` and your `builderCode` attached). The hard part is **who holds
 the key** that owns each user's deposit wallet.
